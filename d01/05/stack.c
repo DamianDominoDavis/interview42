@@ -8,23 +8,27 @@ struct s_stack	*initStack(void) {
 }
 
 int				pop(struct s_stack *stack) {
-	struct s_item *i = NULL;
+	struct s_elem *e = 0;
 	int x = 0;
 
-	if (stack && stack->item) {
-		i = stack->item;
-		x = i->idx;
-		stack->item = stack->item->next;
-		free(i);
+	if (stack && stack->elem) {
+		e = stack->elem;
+		x = e->energy;
+		stack->elem = stack->elem->next;
+		free(e);
 	}
 	return (x);
 }
 
-void			push(struct s_stack *stack, int idx) {
-	struct s_item *i;
+void			push(struct s_stack *stack, int sum) {
+	struct s_elem *i;
 
-	if (stack && (i = malloc(sizeof(struct s_item)))) {
-		*i = (struct s_item){idx, stack->item};
-		stack->item = i;
+	if (stack && (i = malloc(sizeof(struct s_elem)))) {
+		*i = (struct s_elem){sum, stack->elem};
+		stack->elem = i;
 	}
+}
+
+int				peek(struct s_stack *stack) {
+	return (stack && stack->elem)? stack->elem->energy : 0;
 }

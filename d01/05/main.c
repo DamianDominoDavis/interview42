@@ -5,6 +5,14 @@
 
 #include "header.h"
 
+static void printTank(struct s_tank *t) {
+	if (!t) return;
+	printf("normal:%d%s", peek(t->stacks[0]), peek(t->stacks[1])?" ":"");
+	for (int s=1; s<=t->n && peek(t->stacks[s]); s++)
+		printf("nitro%d:%d%s", s, peek(t->stacks[s]), peek(t->stacks[s+1])?" ":"");
+	printf("%s","\n");
+}
+
 int main(void)
 {
 	struct s_tank *tank = initTank();
@@ -12,8 +20,19 @@ int main(void)
 	/*-------------------
 	launch your test here
 	--------------------*/
+	tankPush(tank, 990);
+	printTank(tank);
+	tankPush(tank, 100);
+	printTank(tank);
 	tankPush(tank, 10);
-	tankPush(tank, 50);
+	printTank(tank);
+	tankPop(tank);
+	printTank(tank);
+	tankPop(tank);
+	tankPop(tank);
+	printTank(tank);
+	tankPop(tank);
+	printTank(tank);
 	return (0);
 }
 

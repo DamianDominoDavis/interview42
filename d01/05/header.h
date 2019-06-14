@@ -42,8 +42,9 @@ int tankPop(struct s_tank *tank);
   --------------------------------*/
 #define N (int)10
 
-struct s_stack  *stackInit(void);
+struct s_stack  *initStack(void);
 int       pop(struct s_stack *stack);
 void      push(struct s_stack *stack, int idx);
+int       peek(struct s_stack *stack);
 
 #endif
