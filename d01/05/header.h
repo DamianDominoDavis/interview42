@@ -10,7 +10,7 @@
   --------------------------------*/
 
 // Tank
-
+#include <stdlib.h>
 struct s_elem {
     int energy;
     struct s_elem *next;
@@ -40,6 +40,10 @@ int tankPop(struct s_tank *tank);
 /*--------------------------------
   &  your own other function
   --------------------------------*/
+#define N (int)10
 
+struct s_stack  *stackInit(void);
+int       pop(struct s_stack *stack);
+void      push(struct s_stack *stack, int idx);
 
 #endif
