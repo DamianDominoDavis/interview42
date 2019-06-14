@@ -1,0 +1,2 @@
+isempty, peek, enqueue, dequeue
+all O(1) space and time

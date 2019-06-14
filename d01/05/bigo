@@ -1,0 +1,9 @@
+tankInit
+O(n) spacetime
+
+tank ops
+O(n) time worst case, O(1) avg case
+O(n) space
+
+stack ops
+O(1) spacetime
