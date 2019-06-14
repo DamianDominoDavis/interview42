@@ -56,7 +56,7 @@ char *console(void) {
 		if (!strcmp(input, "UNDO")) {
 			if (stack->item)
 				len = pop(stack);
-			msg[len] = 0;
+			bzero(msg + len, BLEN - len);
 		}
 		else {
 			push(stack, len);
